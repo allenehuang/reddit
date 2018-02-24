@@ -17,6 +17,7 @@
 		590F6FCD2041CE8600124EF4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F6FCC2041CE8600124EF4 /* PostTableViewCell.swift */; };
 		590F6FD02041D8C200124EF4 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F6FCF2041D8C200124EF4 /* UIView+Helper.swift */; };
 		590F6FD22041E22D00124EF4 /* DateFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F6FD12041E22D00124EF4 /* DateFormatterService.swift */; };
+		590F6FD52041F16C00124EF4 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F6FD42041F16C00124EF4 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		590F6FCC2041CE8600124EF4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		590F6FCF2041D8C200124EF4 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
 		590F6FD12041E22D00124EF4 /* DateFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterService.swift; sourceTree = "<group>"; };
+		590F6FD42041F16C00124EF4 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +66,12 @@
 		590F6FB12041BB3300124EF4 /* reddit */ = {
 			isa = PBXGroup;
 			children = (
+				590F6FD32041F15600124EF4 /* ViewControllers */,
 				590F6FCE2041D8B500124EF4 /* Helpers */,
 				590F6FCB2041CE7000124EF4 /* Views */,
 				590F6FC82041C9BF00124EF4 /* Services */,
 				590F6FC42041C23C00124EF4 /* Models */,
 				590F6FB22041BB3300124EF4 /* AppDelegate.swift */,
-				590F6FB42041BB3300124EF4 /* ViewController.swift */,
 				590F6FB62041BB3300124EF4 /* Main.storyboard */,
 				590F6FB92041BB3300124EF4 /* Assets.xcassets */,
 				590F6FBB2041BB3300124EF4 /* LaunchScreen.storyboard */,
@@ -109,6 +111,15 @@
 				590F6FCF2041D8C200124EF4 /* UIView+Helper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		590F6FD32041F15600124EF4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				590F6FB42041BB3300124EF4 /* ViewController.swift */,
+				590F6FD42041F16C00124EF4 /* ImageViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +200,7 @@
 				590F6FB52041BB3300124EF4 /* ViewController.swift in Sources */,
 				590F6FD02041D8C200124EF4 /* UIView+Helper.swift in Sources */,
 				590F6FD22041E22D00124EF4 /* DateFormatterService.swift in Sources */,
+				590F6FD52041F16C00124EF4 /* ImageViewController.swift in Sources */,
 				590F6FB32041BB3300124EF4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,15 +16,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.frame = self.view.bounds
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        self.view.addSubview(tableView)
-    }
+        view.addSubview(tableView)
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         SearchService.shared.getTopPosts { [weak self] (posts, error) in
             if let posts = posts {
                 self?.postsArray = posts
@@ -32,8 +30,11 @@ class ViewController: UIViewController {
                     self?.tableView.reloadData()
                 }
             }
-
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,12 +49,25 @@ extension ViewController: UITableViewDataSource {
         if cell == nil {
             cell = PostTableViewCell()
         }
-        cell?.configureWith(self.postsArray[indexPath.row])
+        cell?.configureWith(postsArray[indexPath.row])
         return cell!
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.postsArray.count
+        return postsArray.count
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = postsArray[indexPath.row]
+        if post.data.type == "image" {
+            let imageViewController = ImageViewController(post: post)
+            navigationController?.pushViewController(imageViewController, animated: true)
+        } else {
+            guard let url = post.data.convertedURL else { return }
+            UIApplication.shared.open(url, options: [:])
+        }
     }
 }
 
