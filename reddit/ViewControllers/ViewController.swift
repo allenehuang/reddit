@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let tableView = UITableView(frame: .zero, style: .plain)
-    var postsArray = [Post]()
+    private let tableView = UITableView(frame: .zero, style: .plain)
+    private var postsArray = [Post]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,20 +23,18 @@ class ViewController: UIViewController {
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
         view.addSubview(tableView)
+        fetchPosts()
+    }
 
-        SearchService.shared.getTopPosts { [weak self] (posts, error) in
+    private func fetchPosts() {
+        SearchService.shared.getTopPosts(post: postsArray.last, completion: { [weak self] (posts, error) in
             if let posts = posts {
-                self?.postsArray = posts
+                self?.postsArray += posts
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
             }
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        })
     }
 }
 
@@ -71,14 +69,7 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.frame.size.height && scrollView.contentSize.height > 0{
-            SearchService.shared.getTopPosts(post: postsArray.last, completion: { [weak self] (posts, error) in
-                if let posts = posts {
-                    self?.postsArray += posts
-                    DispatchQueue.main.async {
-                        self?.tableView.reloadData()
-                    }
-                }
-            })
+            fetchPosts()
         }
     }
 }
