@@ -16,6 +16,7 @@
 		590F6FCA2041C9F000124EF4 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F6FC92041C9F000124EF4 /* SearchService.swift */; };
 		590F6FCD2041CE8600124EF4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F6FCC2041CE8600124EF4 /* PostTableViewCell.swift */; };
 		590F6FD02041D8C200124EF4 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F6FCF2041D8C200124EF4 /* UIView+Helper.swift */; };
+		590F6FD22041E22D00124EF4 /* DateFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F6FD12041E22D00124EF4 /* DateFormatterService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		590F6FC92041C9F000124EF4 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		590F6FCC2041CE8600124EF4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		590F6FCF2041D8C200124EF4 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
+		590F6FD12041E22D00124EF4 /* DateFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				590F6FC92041C9F000124EF4 /* SearchService.swift */,
+				590F6FD12041E22D00124EF4 /* DateFormatterService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				590F6FCD2041CE8600124EF4 /* PostTableViewCell.swift in Sources */,
 				590F6FB52041BB3300124EF4 /* ViewController.swift in Sources */,
 				590F6FD02041D8C200124EF4 /* UIView+Helper.swift in Sources */,
+				590F6FD22041E22D00124EF4 /* DateFormatterService.swift in Sources */,
 				590F6FB32041BB3300124EF4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
