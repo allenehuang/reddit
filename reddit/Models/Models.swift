@@ -65,4 +65,3 @@ struct PostData: Codable {
         case postID = "name"
     }
 }
-

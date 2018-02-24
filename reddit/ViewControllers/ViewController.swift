@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.frame = self.view.bounds
@@ -31,10 +32,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,4 +82,3 @@ extension ViewController: UIScrollViewDelegate {
         }
     }
 }
-
