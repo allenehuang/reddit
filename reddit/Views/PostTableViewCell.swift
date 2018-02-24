@@ -37,9 +37,8 @@ class PostTableViewCell: UITableViewCell {
         thumbnailImageView.layer.borderWidth = 1.0
 
         authorTimeCommentsContainer.addSubviewsForAutolayout(authorLabel, timeLabel, numberOfCommentsLabel)
-//        labelsContainer.addSubviewsForAutolayout(titleLabel, authorTimeCommentsContainer)
-//        contentView.addSubviewsForAutolayout(thumbnailImageView, labelsContainer)
-        contentView.addSubviewsForAutolayout(authorTimeCommentsContainer)
+        labelsContainer.addSubviewsForAutolayout(titleLabel, authorTimeCommentsContainer)
+        contentView.addSubviewsForAutolayout(thumbnailImageView, labelsContainer)
     }
 
     private func layoutViews() {
@@ -60,13 +59,26 @@ class PostTableViewCell: UITableViewCell {
             NSLayoutConstraint.constraints(withVisualFormat: "V:|[authorLabel]|", options: [], metrics: metrics, views: authorTimeCommentContainerViews)
         )
 
+        let titleContainerViews: [String: Any] = [
+            "authorTimeCommentsContainer": authorTimeCommentsContainer,
+            "titleLabel": titleLabel
+        ]
+
+        labelsContainer.addConstraints(
+            NSLayoutConstraint.constraints(withVisualFormat: "H:|[authorTimeCommentsContainer]|", options: [], metrics: metrics, views: titleContainerViews),
+            NSLayoutConstraint.constraints(withVisualFormat: "H:|[titleLabel]|", options: [], metrics: metrics, views: titleContainerViews),
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|[titleLabel]-spacing-[authorTimeCommentsContainer]|", options: [], metrics: metrics, views: titleContainerViews)
+        )
+
         let views: [String: Any] = [
-            "authorTimeCommentsContainer": authorTimeCommentsContainer
+            "labelsContainer": labelsContainer,
+            "thumbnailImageView": thumbnailImageView
         ]
 
         contentView.addConstraints(
-            NSLayoutConstraint.constraints(withVisualFormat: "H:|[authorTimeCommentsContainer]|", options: [], metrics: metrics, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|[authorTimeCommentsContainer]|", options: [], metrics: metrics, views: views)
+            NSLayoutConstraint.constraints(withVisualFormat: "H:|-spacing-[labelsContainer]-spacing-[thumbnailImageView]-spacing-|", options: [], metrics: metrics, views: views),
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|-spacing-[labelsContainer]-spacing-|", options: [], metrics: metrics, views: views),
+            NSLayoutConstraint.constraints(withVisualFormat: "V:|-spacing-[thumbnailImageView]-spacing-|", options: [], metrics: metrics, views: views)
         )
     }
 
