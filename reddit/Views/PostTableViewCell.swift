@@ -76,7 +76,7 @@ class PostTableViewCell: UITableViewCell {
         ]
 
         contentView.addConstraints(
-            NSLayoutConstraint.constraints(withVisualFormat: "H:|-spacing-[labelsContainer]-spacing-[thumbnailImageView]-spacing-|", options: [], metrics: metrics, views: views),
+            NSLayoutConstraint.constraints(withVisualFormat: "H:|-spacing-[labelsContainer]-spacing-[thumbnailImageView(==100)]-spacing-|", options: [], metrics: metrics, views: views),
             NSLayoutConstraint.constraints(withVisualFormat: "V:|-spacing-[labelsContainer]-spacing-|", options: [], metrics: metrics, views: views),
             NSLayoutConstraint.constraints(withVisualFormat: "V:|-spacing-[thumbnailImageView]-spacing-|", options: [], metrics: metrics, views: views)
         )
