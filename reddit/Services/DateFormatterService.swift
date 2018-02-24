@@ -15,6 +15,6 @@ class DateFormatterService {
     func getDifferenceInHours(date: Date) -> String {
         let timeInterval = NSInteger(Date().timeIntervalSince(date))
         let hours = timeInterval / 3600
-        return "\(hours) hours ago"
+        return hours == 1 ? "\(hours) hour ago" : "\(hours) hours ago"
     }
 }
