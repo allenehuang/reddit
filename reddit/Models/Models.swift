@@ -51,7 +51,8 @@ struct PostData: Codable {
     var convertedURL: URL? {
         return URL(string: url)
     }
-    let type: String
+    let type: String?
+    let postID: String
 
     enum CodingKeys: String, CodingKey {
         case author
@@ -61,6 +62,7 @@ struct PostData: Codable {
         case dateCreated = "created"
         case url
         case type = "post_hint"
+        case postID = "name"
     }
 }
 

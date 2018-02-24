@@ -33,7 +33,7 @@ class PostTableViewCell: UITableViewCell {
         authorLabel.font = UIFont.systemFont(ofSize: 8.0, weight: .semibold)
         timeLabel.font = UIFont.systemFont(ofSize: 8.0, weight: .regular)
         numberOfCommentsLabel.font = UIFont.systemFont(ofSize: 8.0, weight: .regular)
-        thumbnailImageView.layer.borderColor = UIColor.red.cgColor
+        thumbnailImageView.layer.borderColor = UIColor.black.cgColor
         thumbnailImageView.layer.borderWidth = 1.0
         thumbnailImageView.contentMode = .scaleAspectFit
 

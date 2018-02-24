@@ -13,13 +13,24 @@ class SearchService {
 
     private let host = "reddit.com"
     private let scheme = "https"
+    private var lastUpdatedPost: Post?
 
-    func getTopPosts(completion: @escaping ([Post]?, Error?) -> ()) {
+    func getTopPosts(post: Post? = nil, completion: @escaping ([Post]?, Error?) -> ()) {
+        if let post = post, let lastUpdatedPost = lastUpdatedPost, post.data.postID == lastUpdatedPost.data.postID {
+            return
+        } else {
+            lastUpdatedPost = post
+        }
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
         components.path = "/top.json"
+        if let postID = lastUpdatedPost?.data.postID {
+            let queryItemPostID = URLQueryItem(name: "after", value: postID)
+            components.queryItems = [queryItemPostID]
+        }
 
+        lastUpdatedPost = post
         URLSession.shared.dataTask(with: components.url!) { data, response, error in
             if let data = data {
 //                                let jsonRepresentation = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)

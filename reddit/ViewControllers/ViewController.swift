@@ -71,3 +71,18 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.frame.size.height && scrollView.contentSize.height > 0{
+            SearchService.shared.getTopPosts(post: postsArray.last, completion: { [weak self] (posts, error) in
+                if let posts = posts {
+                    self?.postsArray += posts
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+                }
+            })
+        }
+    }
+}
+
