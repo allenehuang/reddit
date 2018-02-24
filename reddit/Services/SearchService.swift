@@ -26,6 +26,7 @@ class SearchService {
 //                                print(jsonRepresentation)
                 do {
                     let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .secondsSince1970
                     let results = try decoder.decode(TopResults.self, from: data)
                     completion(results.data.children, nil)
 

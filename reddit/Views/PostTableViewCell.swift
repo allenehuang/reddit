@@ -35,6 +35,7 @@ class PostTableViewCell: UITableViewCell {
         numberOfCommentsLabel.font = UIFont.systemFont(ofSize: 12.0, weight: .regular)
         thumbnailImageView.layer.borderColor = UIColor.red.cgColor
         thumbnailImageView.layer.borderWidth = 1.0
+        thumbnailImageView.contentMode = .scaleAspectFit
 
         authorTimeCommentsContainer.addSubviewsForAutolayout(authorLabel, timeLabel, numberOfCommentsLabel)
         labelsContainer.addSubviewsForAutolayout(titleLabel, authorTimeCommentsContainer)
@@ -85,8 +86,11 @@ class PostTableViewCell: UITableViewCell {
     func configureWith(_ post: Post) {
         titleLabel.text = post.data.title
         authorLabel.text = post.data.author
-        timeLabel.text = "time label"
+        timeLabel.text = "\(post.data.dateCreated)"
         numberOfCommentsLabel.text = "\(post.data.numberOfComments) comments"
+        if let thumbnailURL = post.data.thumbnailURL {
+            thumbnailImageView.downloadImage(url: thumbnailURL)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {

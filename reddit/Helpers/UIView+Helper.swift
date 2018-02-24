@@ -21,3 +21,14 @@ extension UIView {
         addConstraints(constraints.flatMap { $0 })
     }
 }
+
+extension UIImageView {
+    func downloadImage(url: URL) {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data)
+            }
+        }.resume()
+    }
+}

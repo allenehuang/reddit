@@ -40,12 +40,19 @@ struct PostData: Codable {
     let numberOfComments: Int
     let thumbnail: String?
     let dateCreated: Date
+    var thumbnailURL: URL? {
+        if let thumbnail = thumbnail {
+            return URL(string: thumbnail)
+        } else {
+            return nil
+        }
+    }
 
     enum CodingKeys: String, CodingKey {
         case author
         case title
         case numberOfComments = "num_comments"
         case thumbnail
-        case dateCreated = "created_utc"
+        case dateCreated = "created"
     }
 }

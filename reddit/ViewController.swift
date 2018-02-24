@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
-
         self.view.addSubview(tableView)
     }
 
